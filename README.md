@@ -1,5 +1,5 @@
 # VXN
------------
+
 
 <p align="left">
     <a href='https://arxiv.org/abs/2210.16822'>
@@ -19,7 +19,7 @@ The official repository of the **NeurIPS 2022** paper: **Towards Versatile Embod
 
 
 ## Environment Installation
--------
+
 Create a python environment and install the required packages using the following scripts:
 ```bash
 conda create -n vxn --file requirements.txt
@@ -28,7 +28,7 @@ conda activate vxn
 
 
 ## Dataset 
-------
+
 Create the folder for datasets using the following scripts:
 ```bash
 mkdir data
@@ -45,14 +45,14 @@ Download [datasets]() for `image-goal` nav., `audio-goal` nav., `object-goal` na
 
 
 ## Training
----
+
 For a multi-node cluster, run the following script to start the training.
 ```bash
 bash sbatch_scripts/sub_job.sh
 ```
 
 ## Evaluation
----
+
 Run the following script to evaluate the trained model for each task.
 ```bash
 bash sbatch_scripts/eval_mt.sh
@@ -64,7 +64,7 @@ bash sbatch_scripts/eval_mt.sh
 
 
 ## Citation
-----
+
 If you find our project useful, please consider citing us:
 
 ```bibtex
