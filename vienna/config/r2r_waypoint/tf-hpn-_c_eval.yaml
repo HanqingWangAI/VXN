@@ -1,0 +1,57 @@
+BASE_TASK_CONFIG_PATH: habitat_extensions/config/vlnce_waypoint_task_teacher.yaml
+TRAINER_NAME: ddppo-waypoint-tf
+ENV_NAME: VLNCEWaypointEnv
+SIMULATOR_GPU_IDS: [0]
+TORCH_GPU_ID: 0
+NUM_ENVIRONMENTS: 10
+TENSORBOARD_DIR: data/tensorboard_dirs/220616_2/2e-4/eval
+CHECKPOINT_FOLDER: data/checkpoints/220616_2/2e-4
+EVAL_CKPT_PATH_DIR: data/checkpoints/220616_2/2e-4
+
+VISIBLE_GPUS: [0,1,2,3]
+
+EVAL:
+  USE_CKPT_CONFIG: False
+  VISIBLE_GPUS: [0]
+  TORCH_GPU_ID: 0
+  EPISODE_COUNT: -1
+  NUM_PROCESSES: 10
+  SPLIT: 'val'
+
+RL:
+  POLICY:
+    OBS_TRANSFORMS:
+      ENABLED_TRANSFORMS: [ObsStack]
+
+  PPO:
+    pano_entropy_coef: 1.5
+    offset_entropy_coef: 1.0
+    lr: 3.125e-6
+    num_mini_batch: 2
+    num_steps: 40
+
+  DDPPO:
+    start_from_requeue: False
+    requeue_path: data/checkpoints/hpn_baseline/ckpt.169.pth
+MODEL:
+  policy_name: WaypointPolicyTF
+
+  WAYPOINT:
+    predict_distance: False
+    min_offset_var: 0.00030625  # stddev of 1 degree
+    max_offset_var: 0.06853892  # stddev of (range / 2)
+    offset_temperature: 4.0
+
+  INSTRUCTION_ENCODER:
+    bidirectional: True
+    final_state_only: False
+
+  RGB_ENCODER:
+    cnn_type: TorchVisionResNet18
+    output_size: 256
+
+  DEPTH_ENCODER:
+    output_size: 256
+
+  STATE_ENCODER:
+    hidden_size: 256
