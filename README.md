@@ -40,8 +40,8 @@ Download the matterport3D dataset following the instruction [here](https://githu
 Download [datasets]() for `image-goal` nav., `audio-goal` nav., `object-goal` nav., and `vision-language` nav. tasks, and uncompressed it under the path `data/datasets`.
 
 ### Continuous Audio Rendering
-1. Download the rendered BRIRs (binaural room impulse responses) (887G) for Matterport3D scenes [here](). Put `data.mdb` under the path `data/binaural_rirs_lmdb/`.
-2. Download the alignment data (505G) for discrete BRIRs [here](). Put `data.mdb` under the path `data/align_lmdb/`.
+1. Download the rendered BRIRs (binaural room impulse responses) (887G) for Matterport3D scenes [here](https://drive.google.com/drive/folders/1ENRsomR4Q9LNVCP0w3fx9RjJP2pO5QCp?usp=sharing). Put `data.mdb` under the path `data/binaural_rirs_lmdb/`.
+2. Download the alignment data (505G) for discrete BRIRs [here](https://drive.google.com/drive/folders/1hmFWW7SID1EcYTOQRvtNzO9_3NdkkD_c?usp=sharing). Put `data.mdb` under the path `data/align_lmdb/`.
 
 
 ## Training
